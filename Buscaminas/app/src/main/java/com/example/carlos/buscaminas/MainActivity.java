@@ -1,5 +1,7 @@
 package com.example.carlos.buscaminas;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,6 +19,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
+    boolean iniciado = false;
     Button iniciar;
     Button resolver;
     TextView aciertos;
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     CheckBox checkBox12;
 
    boolean[] listaMinas;
+    List<CheckBox> listaCheckBox;
 
 
     @Override
@@ -48,8 +52,9 @@ public class MainActivity extends AppCompatActivity {
         resolver = (Button) findViewById(R.id.button);
         aciertos = (TextView) findViewById(R.id.textView3);
         cuentaAciertos = 0;
+        listaCheckBox = new ArrayList<>();
         inicializarCheckBox();
-
+        agregarCheckBox();
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         resolver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                resolver();
+                resolver(0);
             }
         });
 
@@ -78,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 //evaluar si en esta posición existe mina
               if(listaMinas[0]){
                   checkBox1.setText("X");
-                  resolver();
+                  resolver(1);
               }else{
                   ++cuentaAciertos;
                   aciertos.setText(String.valueOf(cuentaAciertos));
@@ -91,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox2.setClickable(false);
                 if(listaMinas[1]){
                     checkBox2.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -104,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox3.setClickable(false);
                 if(listaMinas[2]){
                     checkBox3.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -117,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox4.setClickable(false);
                 if(listaMinas[3]){
                     checkBox4.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -130,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox5.setClickable(false);
                 if(listaMinas[4]){
                     checkBox4.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -143,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox6.setClickable(false);
                 if(listaMinas[5]){
                     checkBox6.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -156,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox7.setClickable(false);
                 if(listaMinas[6]){
                     checkBox6.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -169,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox8.setClickable(false);
                 if(listaMinas[7]){
                     checkBox8.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -182,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox9.setClickable(false);
                 if(listaMinas[8]){
                     checkBox9.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -195,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox10.setClickable(false);
                 if(listaMinas[9]){
                     checkBox10.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -208,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox11.setClickable(false);
                 if(listaMinas[10]){
                     checkBox11.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -221,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
                 checkBox12.setClickable(false);
                 if(listaMinas[11]){
                     checkBox12.setText("X");
-                    resolver();
+                    resolver(1);
                 }else{
                     ++cuentaAciertos;
                     aciertos.setText(String.valueOf(cuentaAciertos));
@@ -230,6 +235,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        agregarMinas();
     }
 
     @Override
@@ -271,6 +282,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void agregarMinas(){
+
+        if(iniciado)
+            for(int i = 0; i< listaCheckBox.size();++i){
+                listaMinas[i] = false;
+                listaCheckBox.get(i).setChecked(false);
+                listaCheckBox.get(i).setClickable(true);
+
+
+                cuentaAciertos = 0;
+                aciertos.setText(String.valueOf(cuentaAciertos));
+            }
+        else
+            iniciado = true;
         Random random = new Random();
         random.setSeed((long)(random.nextDouble()*100000000));
         int n;
@@ -299,7 +323,7 @@ public class MainActivity extends AppCompatActivity {
         checkBox11.setText("?");
         checkBox12.setText("?");
     }
-    private void resolver(){
+    private void resolver(int n){
         if(listaMinas[0])
             checkBox1.setText("X");
         if(listaMinas[1])
@@ -324,7 +348,28 @@ public class MainActivity extends AppCompatActivity {
             checkBox11.setText("X");
         if(listaMinas[11])
             checkBox12.setText("X");
+        if(n == 1){
+            Toast.makeText(MainActivity.this, "Perdió el juego", Toast.LENGTH_SHORT).show();
+        }
+        for(int i = 0;i<listaCheckBox.size();++i){
+            listaCheckBox.get(i).setClickable(false);
+        }
 
     }
+    private void agregarCheckBox(){
+        listaCheckBox.add(checkBox1);
+        listaCheckBox.add(checkBox2);
+        listaCheckBox.add(checkBox3);
+        listaCheckBox.add(checkBox4);
+        listaCheckBox.add(checkBox5);
+        listaCheckBox.add(checkBox6);
+        listaCheckBox.add(checkBox7);
+        listaCheckBox.add(checkBox8);
+        listaCheckBox.add(checkBox9);
+        listaCheckBox.add(checkBox10);
+        listaCheckBox.add(checkBox11);
+        listaCheckBox.add(checkBox12);
+    }
+
 
 }

@@ -110,7 +110,8 @@
         android:id="@+id/checkBox8"
         android:layout_above="@+id/checkBox10"
         android:layout_alignLeft="@+id/checkBox11"
-        android:layout_alignStart="@+id/checkBox11" />
+        android:layout_alignStart="@+id/checkBox11"
+        android:checked="false" />
 
     <CheckBox
         android:layout_width="wrap_content"
