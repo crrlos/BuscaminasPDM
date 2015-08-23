@@ -40,7 +40,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1"
+        android:text="\?"
         android:id="@+id/checkBox"
         android:layout_below="@+id/textView"
         android:layout_alignParentLeft="true"
@@ -50,7 +50,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2"
+        android:text="\?"
         android:id="@+id/checkBox2"
         android:layout_above="@+id/checkBox4"
         android:layout_alignLeft="@+id/checkBox5"
@@ -59,16 +59,17 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3"
+        android:text="\?"
         android:id="@+id/checkBox3"
         android:layout_alignTop="@+id/checkBox2"
         android:layout_alignLeft="@+id/checkBox12"
-        android:layout_alignStart="@+id/checkBox12" />
+        android:layout_alignStart="@+id/checkBox12"
+        android:paddingRight="5dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4"
+        android:text="\?"
         android:id="@+id/checkBox4"
         android:layout_below="@+id/checkBox"
         android:layout_alignParentLeft="true"
@@ -78,7 +79,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5"
+        android:text="\?"
         android:id="@+id/checkBox5"
         android:layout_alignTop="@+id/checkBox4"
         android:layout_alignLeft="@+id/checkBox8"
@@ -87,16 +88,17 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="6"
+        android:text="\?"
         android:id="@+id/checkBox6"
         android:layout_above="@+id/checkBox7"
         android:layout_alignLeft="@+id/checkBox9"
-        android:layout_alignStart="@+id/checkBox9" />
+        android:layout_alignStart="@+id/checkBox9"
+        android:paddingRight="5dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="7"
+        android:text="\?"
         android:id="@+id/checkBox7"
         android:layout_below="@+id/checkBox4"
         android:layout_alignParentLeft="true"
@@ -106,7 +108,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="8"
+        android:text="\?"
         android:id="@+id/checkBox8"
         android:layout_above="@+id/checkBox10"
         android:layout_alignLeft="@+id/checkBox11"
@@ -116,16 +118,17 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="9"
+        android:text="\?"
         android:id="@+id/checkBox9"
         android:layout_alignTop="@+id/checkBox8"
         android:layout_alignLeft="@+id/checkBox12"
-        android:layout_alignStart="@+id/checkBox12" />
+        android:layout_alignStart="@+id/checkBox12"
+        android:paddingRight="5dp" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10"
+        android:text="\?"
         android:id="@+id/checkBox10"
         android:layout_below="@+id/checkBox7"
         android:layout_alignParentLeft="true"
@@ -135,7 +138,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="11"
+        android:text="\?"
         android:id="@+id/checkBox11"
         android:layout_alignTop="@+id/checkBox10"
         android:layout_centerHorizontal="true" />
@@ -143,11 +146,12 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12"
+        android:text="\?"
         android:id="@+id/checkBox12"
         android:layout_alignTop="@+id/checkBox11"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:paddingRight="5dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
