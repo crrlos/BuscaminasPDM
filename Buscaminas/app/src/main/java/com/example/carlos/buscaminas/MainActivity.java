@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 agregarMinas();
+                Toast.makeText(MainActivity.this, "Juego iniciado", Toast.LENGTH_SHORT).show();
 
 
             }
