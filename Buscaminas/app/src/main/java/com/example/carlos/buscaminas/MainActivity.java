@@ -19,12 +19,14 @@ import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    boolean iniciado = false;
-    Button iniciar;
-    Button resolver;
-    TextView aciertos;
-    int cuentaAciertos;
 
+    boolean iniciado = false; //variable usada para determinar si es primera ejecución del programa
+    Button iniciar;//botón que inicia el juego
+    Button resolver;//botón que muestra la solución
+    TextView aciertos;//TextView para mostrar el total de aciertos
+    int cuentaAciertos;//variable para contar los aciertos
+
+    //variables de tipo checkbox
     CheckBox checkBox1;
     CheckBox checkBox2;
     CheckBox checkBox3;
@@ -37,9 +39,10 @@ public class MainActivity extends AppCompatActivity {
     CheckBox checkBox10;
     CheckBox checkBox11;
     CheckBox checkBox12;
+    //////////////////////////////////
 
-   boolean[] listaMinas;
-    List<CheckBox> listaCheckBox;
+   boolean[] listaMinas;//vector para almacenar la posicion de las minas
+    List<CheckBox> listaCheckBox;//lista para guardar los objetos de tipo checkbox
 
 
     @Override
@@ -47,20 +50,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       listaMinas = new boolean[12];
+        listaMinas = new boolean[12];//se inicializa el vector que contiene las minas
         iniciar = (Button) findViewById(R.id.button2);
         resolver = (Button) findViewById(R.id.button);
         aciertos = (TextView) findViewById(R.id.textView3);
         cuentaAciertos = 0;
         listaCheckBox = new ArrayList<>();
-        inicializarCheckBox();
-        agregarCheckBox();
+        inicializarCheckBox();//función que inicializa cada uno de los checkbox
+        agregarCheckBox();//función que agrega los checkbox a  la lista
         iniciar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                agregarMinas();
+                agregarMinas();//función para agregar las minas al juego
                 Toast.makeText(MainActivity.this, "Juego iniciado", Toast.LENGTH_SHORT).show();
 
 
